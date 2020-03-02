@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CategoryController@categories')->name('categories');
+Route::get('/category/{id}', 'CategoryController@category')->name('category');
+Route::resource('/admin/category', 'CategoryController');
