@@ -30,3 +30,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+if (document.querySelector('[name="description"]') != null) {
+    CKEDITOR.replace( 'description' );
+}
