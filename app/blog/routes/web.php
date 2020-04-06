@@ -12,5 +12,5 @@
 */
 
 Route::get('/', 'CategoryController@categories')->name('categories');
-Route::get('/category/{id}', 'CategoryController@category')->name('category');
+Route::get('/category/{category}', 'CategoryController@category')->name('category');
 Route::resource('/admin/category', 'CategoryController');
