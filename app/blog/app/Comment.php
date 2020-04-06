@@ -9,6 +9,8 @@ class Comment extends Model
 
     protected $fillable = ['author', 'content'];
 
+    protected $hidden = ['commentable_id', 'commentable_type',];
+
     public function commentable()
     {
         return $this->morphTo();
