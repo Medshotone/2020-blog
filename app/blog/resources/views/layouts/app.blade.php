@@ -33,6 +33,12 @@
                     </li>
                 </ul>
             </div>
+
+            @if(!empty($browsers))
+                @foreach ($browsers as $browser => $count)
+                    {{$browser}}: {{$count}}
+                @endforeach
+            @endif
         </div>
     </nav>
 

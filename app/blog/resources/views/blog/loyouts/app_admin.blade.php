@@ -41,6 +41,12 @@
                     </div>
                 </ul>
             </div>
+
+            @if(!empty($browsers))
+                @foreach ($browsers as $browser => $count)
+                    <span style="margin-right: 5px">{{$browser}}:</span><strong style="margin-right: 10px">{{$count}}</strong>
+                @endforeach
+            @endif
         </div>
     </nav>
     <main class="py-4">
