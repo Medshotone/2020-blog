@@ -14,3 +14,7 @@
 Route::get('/', 'CategoryController@categories')->name('categories');
 Route::get('/category/{category}', 'CategoryController@category')->name('category');
 Route::resource('/admin/category', 'CategoryController');
+
+Route::get('/article', 'ArticleController@articles')->name('articles');
+Route::get('/article/{article}', 'ArticleController@article')->name('article');
+Route::resource('/admin/article', 'ArticleController');

@@ -50773,7 +50773,7 @@ var app = new Vue({
   el: '#app'
 });
 
-if (document.querySelector('[name="description"]') != null) {
+if (document.querySelector('[name="description"]') != null || document.querySelector('#description') != null) {
   CKEDITOR.replace('description');
 }
 
@@ -50797,6 +50797,15 @@ error = {
   template: function template(error_text) {
     var html = '<div class="invalid-feedback">' + error_text + '</div>';
     return html;
+  }
+}; //fileSize object
+
+fileSize = {
+  maxFileSizeCheck: function maxFileSizeCheck(e) {
+    if (e.files[0].size > 2 * 1024 * 1024 + 1) {
+      alert("Файл слишком большой!");
+      e.value = "";
+    }
   }
 };
 

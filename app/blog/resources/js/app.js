@@ -31,7 +31,7 @@ const app = new Vue({
     el: '#app',
 });
 
-if (document.querySelector('[name="description"]') != null) {
+if (document.querySelector('[name="description"]') != null || document.querySelector('#description') != null) {
     CKEDITOR.replace( 'description' );
 }
 
@@ -68,8 +68,19 @@ error = {
     }
 };
 
-function ajaxLoadComments($jquery) {
+//fileSize object
+fileSize = {
+    maxFileSizeCheck: function (e) {
+        if(e.files[0].size > 2 * 1024 * 1024 + 1){
+            alert("Файл слишком большой!");
+            e.value = "";
+        }
+    }
+};
 
+
+
+function ajaxLoadComments($jquery) {
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
