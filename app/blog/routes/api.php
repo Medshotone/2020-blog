@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/comments/category', 'CommentController@storeCategoryComments')->name('comment.category.store');
+Route::get('/comments/category/{category}', 'CommentController@showCategoryComments')->name('comment.category.show');
+
+Route::post('/comments/article', 'CommentController@storeArticleComments')->name('comment.article.store');
+Route::get('/comments/article/{article}', 'CommentController@showArticleComments')->name('comment.article.show');
