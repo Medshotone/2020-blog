@@ -28,10 +28,6 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('category.index') }}">Панель Состояния</a>
-                    </li>
-
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,8 +35,8 @@
                         </button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{route('category.create')}}">Категории</a>
-                            {{--<a class="dropdown-item" href="{{route('article.index')}}">Материалы</a>--}}
+                            <a class="dropdown-item" href="{{route('category.index')}}">Категории</a>
+                            <a class="dropdown-item" href="{{route('article.index')}}">Посты</a>
                         </div>
                     </div>
                 </ul>
