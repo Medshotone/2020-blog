@@ -25,7 +25,7 @@ class StoreCommentPostRequest extends FormRequest
     {
         return [
             'content'     => 'required',
-            'category_id' => 'required|integer',
+            'parent_id'   => 'required|integer',
             'author'      => [
                 function ($attribute, $value, $fail) {
                     $tmp_value = explode(' ', $value);
