@@ -1,35 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services;
 
 use App\Browser;
 use Jenssegers\Agent\Agent;
 
-class BrowserController extends Controller
+class BrowserCheckService
 {
     public static function checkBrowser() {
         $agent = new Agent();
 
-        $browser_name = $agent->browser();
+        $browserName = $agent->browser();
 
         $browser = new Browser;
 
-        $new_browser =  !(bool)$browser->where('name', $browser_name)->count();
+        $newBrowser =  !(bool)$browser->where('name', $browserName)->count();
 
-        if ($new_browser){
-            $browser->name = $browser_name;
+        if ($newBrowser){
+            $browser->name = $browserName;
 
             $browser->count = 1;
 
             $browser->save();
         }else{
-            $browser->where('name', $browser_name)->increment('count');
+            $browser->where('name', $browserName)->increment('count');
         }
     }
 
-    public static function Browsers() {
-        BrowserController::checkBrowser();
-
+    public static function getBrowsers() {
         $return = [];
 
         $browsers = Browser::all();

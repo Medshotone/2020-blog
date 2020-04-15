@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use App\Http\Controllers\BrowserController;
+use App\Services\BrowserCheckService;
 
 class BrowserServiceProvider extends ServiceProvider
 {
@@ -25,6 +25,8 @@ class BrowserServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('browsers', BrowserController::Browsers());
+        View::composer(['blog.article.*', 'blog.category.*'], function ($view) {
+            $view->with('browsers', BrowserCheckService::getBrowsers());
+        });
     }
 }
