@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services;
 
 use App\Browser;
 use Jenssegers\Agent\Agent;
 
-class BrowserController extends Controller
+class BrowserCheckService
 {
     public static function checkBrowser() {
         $agent = new Agent();
@@ -27,9 +27,7 @@ class BrowserController extends Controller
         }
     }
 
-    public static function Browsers() {
-        BrowserController::checkBrowser();
-
+    public static function getBrowsers() {
         $return = [];
 
         $browsers = Browser::all();
